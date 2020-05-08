@@ -2,7 +2,7 @@
 Program to calculate a person's macronutrients based on their fitness goals.
 
 ## What does this program do?
-- User enters some info to a form:
+- User enters some info into a form:
   - Age, weight, and, height (US units)
   - Activity level 
   - Body type

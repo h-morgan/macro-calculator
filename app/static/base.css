@@ -1,0 +1,27 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(240, 240, 240);
+}
+
+.title-area {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.row {
+    text-align: center;
+}
+
+h1 {
+    text-shadow: 1px 1px 3px rgb(66, 66, 66);
+    color: rgb(161, 43, 43);
+}
+
+.form-area {
+    background-color: rgb(161, 43, 43);
+    border-radius: 10px;
+    width: 400px;
+    height: 20px;
+    margin: auto;
+}
+

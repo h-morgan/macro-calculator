@@ -10,3 +10,5 @@ class macroForm(FlaskForm):
   gender = RadioField('Gender', choices=[('male', 'Male'), ('female', 'Female')])
   activity_level = SelectField('Activity Level', choices=[('sedentary', 'Sedentary (little or no exercise)'), ('light', 'Lightly Active (activity 1-3 days/week)'), ('moderate', 'Moderately Active (activity 3-5 days/week)'), ('very', 'Very Active (activity 6-7 days/week)'), ('extra', 'Extra Active (anything more)')])
   body_type = SelectField('Body Type', choices=[('ectomorph', 'Ectomorph'), ('mesomorph', 'Mesomorph'), ('endomorph', 'Endomorph')])
+  fitness_goal = SelectField('Fitness Goal', choices=[('lose', 'Lose weight'), ('gain', 'Gain weight'), ('maintain', 'Maintain weight')]
+  submit = SubmitField('Calculate')

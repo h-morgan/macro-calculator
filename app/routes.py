@@ -1,10 +1,14 @@
 from app import app
 from flask import render_template, redirect
+from app.forms import MacroForm
 
 @app.route('/')
 @app.route('/index')
 def index():
-  return render_template('index.html')
+  form = MacroForm()
+  if form.validate_on_submit():
+    flash("Submit successful")
+  return render_template('index.html', form=form)
 
 @app.route('/gmf_website')
 def gmf_website():

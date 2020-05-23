@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, redirect
+from flask import render_template, redirect, url_for
 from app.forms import MacroForm
 
 @app.route('/')
@@ -7,8 +7,15 @@ from app.forms import MacroForm
 def index():
   form = MacroForm()
   if form.validate_on_submit():
-    flash("Submit successful")
-  return render_template('index.html', form=form)
+    results = form
+    return redirect(url_for('calculate_results', results=results))
+    
+  return render_template('calcs.html', form=form)
+
+@app.route('/results')
+def calculate_results(results):
+  
+
 
 @app.route('/gmf_website')
 def gmf_website():

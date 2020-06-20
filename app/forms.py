@@ -12,3 +12,6 @@ class MacroForm(FlaskForm):
   body_type = SelectField('Body Type', choices=[('ectomorph', 'Ectomorph'), ('mesomorph', 'Mesomorph'), ('endomorph', 'Endomorph')])
   fitness_goal = SelectField('Fitness Goal', choices=[('lose', 'Lose weight'), ('gain', 'Gain weight'), ('maintain', 'Maintain weight')])
   submit = SubmitField('Calculate')
+
+class ReSubmit(FlaskForm):
+  submit = SubmitField('Try Again')

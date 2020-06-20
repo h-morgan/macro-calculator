@@ -5,31 +5,31 @@
 <form action="" method="post" novalidate class="container-fluid">
     {{ form.hidden_tag() }}
     <div class="row">
-        <p class="col-5 left-form">{{ form.age.label }}: </p>
+        <p class="col-5 left-form label">{{ form.age.label }}: </p>
         <p class="col-7 right-form">{{ form.age(size=5, class_="small-inputs") }}</p>
     </div>
     <div class="row">
-        <p class="col-5 left-form">{{ form.weight.label }}: </p>
+        <p class="col-5 left-form label">{{ form.weight.label }}: </p>
         <p class="col-7 right-form">{{ form.weight(size=5, class_="small-inputs") }}</p>
     </div>
     <div class="row">
-        <p class="col-5 left-form">Height: </p>
+        <p class="col-5 left-form label">Height: </p>
         <p class="col-7 right-form">{{ form.height_ft(size=5, class="small-inputs") }} {{ form.height_ft.label }} &nbsp; {{ form.height_in(size=5, class="small-inputs") }} {{ form.height_in.label }}</p>
     </div>
     <div class="row">
-        <p class="col-5 left-form">{{ form.gender.label }}: </p>
+        <p class="col-5 left-form label">{{ form.gender.label }}: </p>
         <p class="col-7 right-form">{{ form.gender(class_="form-control") }}</p>
     </div>
     <div class="row">
-        <p class="col-5 left-form">{{ form.activity_level.label }}: </p>
+        <p class="col-5 left-form label">{{ form.activity_level.label }}: </p>
         <p class="col-7 right-form">{{ form.activity_level(class_="form-control") }}</p>
     </div>
     <div class="row">
-        <p class="col-5 left-form">{{ form.body_type.label }}: </p>
+        <p class="col-5 left-form label">{{ form.body_type.label }}: </p>
         <p class="col-7 right-form">{{ form.body_type(class_="form-control") }}</p>
     </div>
     <div class="row">
-        <p class="col-5 left-form">{{ form.fitness_goal.label }}: </p>
+        <p class="col-5 left-form label">{{ form.fitness_goal.label }}: </p>
         <p class="col-7 right-form">{{ form.fitness_goal(class_="form-control") }}</p>
     </div>
     <div class='row'>

@@ -2,4 +2,81 @@
 
 {% block content %}
 
+{% if results %}
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <div class="container-fluid">
+        <div class="row">
+            <p class="col left-form">Base Metabolic Rate (BMR):</p>
+            <p class="col right-form">{{ results.bmr }}</p>
+        </div>
+        <div class="row">
+            <p class="col left-form">Total Caloric Expenditure (TCE):</p>
+            <p class="col right-form">{{ results.tce }}</p>
+        </div>
+        <div class="row">
+            <p class="col left-form">Target Calories:</p>
+            <p class="col right-form">{{ results.target_cals }}</p>
+        </div>
+        <div id="piechart" class="container-fluid"></div>
+        <div class="target-row">
+            <p class="macro-title">Daily Macros</p>
+            <div class="row">
+                <p class="col left-form">Protein:</p>
+                <p class="col right-form">{{ results.grams.protein }} grams</p>
+            </div>
+            <div class="row">
+                <p class="col left-form">Carbs:</p>
+                <p class="col right-form">{{ results.grams.carbs }} grams</p>
+            </div>
+            <div class="row">
+                <p class="col left-form">Fat:</p>
+                <p class="col right-form">{{ results.grams.fat }} grams</p>
+            </div>
+        </div>
+        <div class="bottom-form">
+         <a href={{ url_for("index") }}><button class="btn btn-secondary btn-lg">Perform another calc</button></a>
+        </div>
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+      macros = {{ results | tojson }};
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Macro', 'Percent'],
+          ['Protein',     macros.calorie_percents.protein],
+          ['Carbs',      macros.calorie_percents.carbs],
+          ['Fat',  macros.calorie_percents.fat],
+        ]);
+
+        var options = {
+          title: 'Percent of Calories from Each Macro',
+          titleTextStyle: {color: 'rgb(240, 240, 240)'},
+          pieHole: 0.4,
+          legend: 'none',
+          pieSliceText: 'label',
+          slices: {
+              0: {color: 'rgb(117, 149, 209)'},
+              1: {color: 'rgb(131, 131, 87)'},
+              2: {color: 'rgb(51, 56, 48)'}
+          },
+          backgroundColor: 'rgb(161, 43, 43)',
+          chartArea: {top: 40, height: 230},
+          tooltip: {text: 'percentage'}
+       
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+{% endif %}
+
 {% endblock %}
